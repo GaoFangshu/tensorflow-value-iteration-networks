@@ -53,7 +53,7 @@ cost = tf.add_n(tf.get_collection('losses'), name='total_loss')
 optimizer = tf.train.RMSPropOptimizer(learning_rate=config.lr, epsilon=1e-6, centered=True).minimize(cost)
 
 # Test model & calculate accuracy
-cp = tf.cast(tf.argmax(nn, 1), tf.int32)
+cp = tf.cast(tf.argmax(nn, 1), tf.int32)    # Returns the index with the largest value across axes of a tensor.
 err = tf.reduce_mean(tf.cast(tf.not_equal(cp, y), dtype=tf.float32))
 
 # Initializing the variables
